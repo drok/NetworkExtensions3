@@ -35,7 +35,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Addon.RoadExtension
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{309D6357-1B62-4C4B-9239-4E2FD95FE267}"
 	ProjectSection(SolutionItems) = preProject
-		NetworkExtensions2\NetworkExtensions2.csproj = NetworkExtensions2\NetworkExtensions2.csproj
+		NetworkExtensions3\NetworkExtensions3.csproj = NetworkExtensions3\NetworkExtensions3.csproj
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Framework.Hooks", "Transit.Framework.Hooks\Transit.Framework.Hooks.csproj", "{A700F186-B123-45B5-ADFE-B865DF5A0F39}"
@@ -45,9 +45,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Framework.Extension
 		{8891467E-C88E-46B0-96F9-4413DF6DC205} = {8891467E-C88E-46B0-96F9-4413DF6DC205}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkExtensions2", "NetworkExtensions2\NetworkExtensions2.csproj", "{2D3B89B2-5C70-458F-B3E8-3A3A6898646D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkExtensions3", "NetworkExtensions3\NetworkExtensions3.csproj", "{2D3B89B2-5C70-458F-B3E8-3A3A6898646D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkExtensions2.Deploy", "NetworkExtensions2.Deploy\NetworkExtensions2.Deploy.csproj", "{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkExtensions3.Deploy", "NetworkExtensions3.Deploy\NetworkExtensions3.Deploy.csproj", "{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
