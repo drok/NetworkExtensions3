@@ -31,11 +31,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
+	<Import Project="..\CitySkylinesPath.props" />
+	<ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="UnityEngine">
-      <HintPath>D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>$(GameAssembliesLocation)UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

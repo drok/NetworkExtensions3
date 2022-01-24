@@ -5,16 +5,8 @@ VisualStudioVersion = 16.0.28917.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_References", "_References", "{FC5D316C-D7B8-4986-9E91-D3784D4A8CBB}"
 	ProjectSection(SolutionItems) = preProject
-		D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\Assembly-CSharp-firstpass.dll = D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\Assembly-CSharp-firstpass.dll
-		D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\Assembly-CSharp.dll = D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\Assembly-CSharp.dll
-		D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\ColossalManaged.dll = D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\ColossalManaged.dll
-		D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\ICities.dll = D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\ICities.dll
-		References\Mono.Posix.dll = References\Mono.Posix.dll
-		References\Mono.Security.dll = References\Mono.Security.dll
-		References\UnityEngine.Analytics.dll = References\UnityEngine.Analytics.dll
-		D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.dll = D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.dll
-		D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.Networking.dll = D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.Networking.dll
-		D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.UI.dll = D:\Program Files\SteamLibrary\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.UI.dll
+		CitySkylinesPath.props = CitySkylinesPath.props
+		CitySkylinesReferences.props = CitySkylinesReferences.props
 		References\UnityEngine.xml = References\UnityEngine.xml
 	EndProjectSection
 EndProject

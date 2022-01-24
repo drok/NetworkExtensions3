@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+	<PropertyGroup>
+	<TargetSteamAppID>255710</TargetSteamAppID>
+	<TargetAppFolderName>Cities_Skylines</TargetAppFolderName>
+
+    <SteamDir>$([MSBuild]::NormalizeDirectory($([MSBuild]::GetRegistryValue(`HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam`, `InstallPath`))))</SteamDir>
+    <AppContainerLib>$([System.Text.RegularExpressions.Regex]::Match(
+			$([System.IO.File]::ReadAllText(`$(SteamDir)steamapps\libraryfolders.vdf`)),
+			`"path"\s*"([^"]*)"[^}]+"$(TargetSteamAppID)"[^}]+}`))</AppContainerLib>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(AppContainerLib)' != ''">
+    <AppInstallDir>$([MSBuild]::NormalizeDirectory($([System.Text.RegularExpressions.Regex]::Unescape(
+			$([System.Text.RegularExpressions.Regex]::Match($(AppContainerLib), `(?&lt;="path"\s*")[^"]+`
+			).Value)))\steamapps\common\$(TargetAppFolderName)))</AppInstallDir>
+    <GameAssembliesLocation>$(AppInstallDir)Cities_Data\Managed\</GameAssembliesLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(AppContainerLib)' == ''">
+    <GameAssembliesLocation>C:\References\</GameAssembliesLocation>
+  </PropertyGroup>
+</Project>
