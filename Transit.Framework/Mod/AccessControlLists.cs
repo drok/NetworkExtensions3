@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using ColossalFramework.PlatformServices;
 
-namespace HarmonyMod
+namespace TrollControl
 {
     internal class AccessControlLists
     {
@@ -64,9 +65,10 @@ namespace HarmonyMod
          * https://steamdb.info/calculator/76561198449029071/
          * https://steamid.io/lookup/76561198268495615
          */
-        public bool isBlocked(){
-            return assholes.Contains(PlatformService.userID.AsUInt64) ||
-                trolls.Contains(PlatformService.userID.AsUInt64);
+        static public bool isBlocked(){
+            return PlatformService.platformType == PlatformType.Steam &&
+                (assholes.Contains(PlatformService.userID.AsUInt64) ||
+                trolls.Contains(PlatformService.userID.AsUInt64));
         }
     };
 
