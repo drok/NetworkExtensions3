@@ -9,6 +9,8 @@ namespace Transit.Framework.Mod
     {
         public virtual void OnEnabled()
         {
+            if (isBlocked() || !HasCompatibleHarmony())
+                return;
             ModPrerequisites.InstallForMod(this);
             LoadModulesIfNeeded();
             LoadSettings();
@@ -19,6 +21,8 @@ namespace Transit.Framework.Mod
 
         public virtual void OnDisabled()
         {
+            if (isBlocked() || !HasCompatibleHarmony())
+                return;
             foreach (IModule module in Modules)
                 module.OnDisabled();
 
@@ -27,12 +31,16 @@ namespace Transit.Framework.Mod
 
         public override void OnLevelUnloading()
         {
+            if (isBlocked() || !HasCompatibleHarmony())
+                return;
             foreach (IModule module in Modules)
                 module.OnLevelUnloading();
         }
 
         public override void OnLevelLoaded(LoadMode mode)
         {
+            if (isBlocked() || !HasCompatibleHarmony())
+                return;
             foreach (IModule module in Modules)
                 module.OnLevelLoaded(mode);
         }
