@@ -12,7 +12,7 @@ namespace NetworkExtensions
     {
         public override string Name
         {
-            get { return "Network Extensions 3"; }
+            get { return "Network Extensions 3 " + Version; }
         }
 
         public override string Description
@@ -25,7 +25,7 @@ namespace NetworkExtensions
 
         public override string Version
         {
-            get { return "1.0.1"; }
+            get { return "1.0.2"; }
         }
 
     }

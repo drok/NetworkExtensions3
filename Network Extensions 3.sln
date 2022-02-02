@@ -7,15 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_References", "_References"
 	ProjectSection(SolutionItems) = preProject
 		CitySkylinesPath.props = CitySkylinesPath.props
 		CitySkylinesReferences.props = CitySkylinesReferences.props
+		MonoDebugSymbols.targets = MonoDebugSymbols.targets
 		References\UnityEngine.xml = References\UnityEngine.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjUnity3D", "ObjUnity3D\ObjUnity3D.csproj", "{97D70503-6567-41A1-92FC-66D813A53370}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Framework.Redirection", "Transit.Framework.Redirection\Transit.Framework.Redirection.csproj", "{7DCC08EF-DC85-47A4-BD6F-79FC52C7EF13}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2D3B89B2-5C70-458F-B3E8-3A3A6898646D} = {2D3B89B2-5C70-458F-B3E8-3A3A6898646D}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Framework", "Transit.Framework\Transit.Framework.csproj", "{8891467E-C88E-46B0-96F9-4413DF6DC205}"
 EndProject
@@ -33,11 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Addon.PathFinding",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Addon.RoadExtensions", "Transit.Addon.RoadExtensions\Transit.Addon.RoadExtensions.csproj", "{19FA21B2-39CC-4B90-BE7E-B6BDCCB09208}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{309D6357-1B62-4C4B-9239-4E2FD95FE267}"
-	ProjectSection(SolutionItems) = preProject
-		NetworkExtensions3\NetworkExtensions3.csproj = NetworkExtensions3\NetworkExtensions3.csproj
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Framework.Hooks", "Transit.Framework.Hooks\Transit.Framework.Hooks.csproj", "{A700F186-B123-45B5-ADFE-B865DF5A0F39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Framework.ExtensionPoints", "Transit.Framework.ExtensionPoints\Transit.Framework.ExtensionPoints.csproj", "{2E44ECA3-D750-4115-B16B-FCA94C49BBA0}"
@@ -45,9 +38,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Framework.Extension
 		{8891467E-C88E-46B0-96F9-4413DF6DC205} = {8891467E-C88E-46B0-96F9-4413DF6DC205}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkExtensions3", "NetworkExtensions3\NetworkExtensions3.csproj", "{2D3B89B2-5C70-458F-B3E8-3A3A6898646D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkExtensions3.Deploy", "NetworkExtensions3.Deploy\NetworkExtensions3.Deploy.csproj", "{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transit.Addon", "NetworkExtensions3\Transit.Addon.csproj", "{2D3B89B2-5C70-458F-B3E8-3A3A6898646D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{97D70503-6567-41A1-92FC-66D813A53370} = {97D70503-6567-41A1-92FC-66D813A53370}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -157,29 +151,9 @@ Global
 		{2D3B89B2-5C70-458F-B3E8-3A3A6898646D}.Release|x64.Build.0 = Release|Any CPU
 		{2D3B89B2-5C70-458F-B3E8-3A3A6898646D}.Release|x86.ActiveCfg = Release|Any CPU
 		{2D3B89B2-5C70-458F-B3E8-3A3A6898646D}.Release|x86.Build.0 = Release|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Debug|ARM.Build.0 = Debug|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Debug|x64.Build.0 = Debug|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Debug|x86.Build.0 = Debug|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Release|ARM.ActiveCfg = Release|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Release|ARM.Build.0 = Release|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Release|x64.ActiveCfg = Release|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Release|x64.Build.0 = Release|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Release|x86.ActiveCfg = Release|Any CPU
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{2D3B89B2-5C70-458F-B3E8-3A3A6898646D} = {309D6357-1B62-4C4B-9239-4E2FD95FE267}
-		{D2DA5492-3DE6-4E7D-AFF1-BB62C950632D} = {309D6357-1B62-4C4B-9239-4E2FD95FE267}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CA6D43CE-8EE4-4B1E-9493-A81933614ADA}
