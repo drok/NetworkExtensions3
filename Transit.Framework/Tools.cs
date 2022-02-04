@@ -47,44 +47,6 @@ namespace Transit.Framework
             }
         }
 
-        public static string PackageName(string assetName)
-        {
-            var publishedFileID = PluginInfo.publishedFileID.ToString();
-            if (publishedFileID.Equals(PublishedFileId.invalid.ToString()))
-            {
-                return assetName;
-            }
-            return publishedFileID;
-        }
-
-        private static PluginInfo PluginInfo
-        {
-            get
-            {
-                var pluginManager = PluginManager.instance;
-                var plugins = pluginManager.GetPluginsInfo();
-
-                foreach (var item in plugins)
-                {
-                    try
-                    {
-                        var instances = item.GetInstances<IUserMod>();
-                        if (!(instances.FirstOrDefault() is TransitModBase))
-                        {
-                            continue;
-                        }
-                        return item;
-                    }
-                    catch
-                    {
-
-                    }
-                }
-                throw new Exception("Failed to find NetworkExtensions assembly!");
-
-            }
-        }
-
         public static string GetAssetPath(string defaultFolderPath, ulong workshopId)
         {
             // 1. Check Local path (CurrentUser\Appdata\Local\Colossal Order\Cities_Skylines\Addons\Mods)

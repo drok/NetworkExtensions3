@@ -3,6 +3,7 @@ using System.Linq;
 using Transit.Addon.RoadExtensions.Compatibility;
 using Transit.Addon.RoadExtensions.Menus;
 using Transit.Addon.RoadExtensions.Menus.Roads;
+using Transit.Addon.RoadExtensions.Roads.Common;
 using Transit.Framework;
 using Transit.Framework.Builders;
 using Transit.Framework.Network;
@@ -220,7 +221,7 @@ namespace Transit.Addon.RoadExtensions.Roads.BusRoads.Busway2L
                         }
                     }
 
-                    lane.m_speedLimit = 1.6f;
+                    lane.m_speedLimit = RoadHelper.SpeedLimit(1.6f);
                     lane.m_laneType = NetInfo.LaneType.TransportVehicle;
                     lane.SetBusLaneProps();
 

@@ -170,7 +170,7 @@ namespace Transit.Addon.RoadExtensions.Roads.Avenues.LargeAvenue6LM
                         Debug.Log($"PILLARNAME = {building.name}");
                     }
                 }
-                var bridgePillar = PrefabCollection<BuildingInfo>.FindLoaded($"{Tools.PackageName("BridgePillar")}.CableStay32m_Data");
+                var bridgePillar = PrefabCollection<BuildingInfo>.FindLoaded("BridgePillar.CableStay32m.Cable Stay Pillar 32m_Data");
                 
                 if (bridgePillar == null)
                 {

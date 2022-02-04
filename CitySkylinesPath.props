@@ -4,6 +4,7 @@
 	<PropertyGroup>
 	<TargetSteamAppID>255710</TargetSteamAppID>
 	<TargetAppFolderName>Cities_Skylines</TargetAppFolderName>
+	<TargetWorkshopFileId>2730687809</TargetWorkshopFileId>
 
     <SteamDir>$([MSBuild]::NormalizeDirectory($([MSBuild]::GetRegistryValue(`HKEY_LOCAL_MACHINE\SOFTWARE\Valve\Steam`, `InstallPath`))))</SteamDir>
     <AppContainerLib>$([System.Text.RegularExpressions.Regex]::Match(
@@ -11,9 +12,11 @@
 			`"path"\s*"([^"]*)"[^}]+"$(TargetSteamAppID)"[^}]+}`))</AppContainerLib>
   </PropertyGroup>
   <PropertyGroup Condition="'$(AppContainerLib)' != ''">
-    <AppInstallDir>$([MSBuild]::NormalizeDirectory($([System.Text.RegularExpressions.Regex]::Unescape(
+    <SteamLibrary>$([MSBuild]::NormalizeDirectory($([System.Text.RegularExpressions.Regex]::Unescape(
 			$([System.Text.RegularExpressions.Regex]::Match($(AppContainerLib), `(?&lt;="path"\s*")[^"]+`
-			).Value)))\steamapps\common\$(TargetAppFolderName)))</AppInstallDir>
+			).Value)))\steamapps\))</SteamLibrary>
+    <AppInstallDir>$(SteamLibrary)common\$(TargetAppFolderName)\</AppInstallDir>
+	<WorkshopItemDir>$(SteamLibrary)workshop\content\$(TargetSteamAppID)\$(TargetWorkshopFileId)\</WorkshopItemDir>
     <GameAssembliesLocation>$(AppInstallDir)Cities_Data\Managed\</GameAssembliesLocation>
   </PropertyGroup>
   <PropertyGroup Condition="'$(AppContainerLib)' == ''">

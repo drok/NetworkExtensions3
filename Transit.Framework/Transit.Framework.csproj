@@ -63,6 +63,7 @@
     <Compile Include="Interfaces\IDLCRequired.cs" />
     <Compile Include="Modularity\ModuleBase.Install.cs" />
     <Compile Include="Mod\AccessControlLists.cs" />
+    <Compile Include="Mod\TransitModBase.AssetExtension.cs" />
     <Compile Include="Mod\TransitModBase.Install.Assets.cs" />
     <Compile Include="Mod\TransitModBase.Install.cs" />
     <Compile Include="Mod\TransitModBase.Install.Localization.cs" />

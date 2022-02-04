@@ -12,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using HarmonyLib;
 using CitiesHarmony.API;
-using TrollControl;
 
 #if DEBUG
 using Debug = Transit.Framework.Debug;
@@ -33,7 +32,6 @@ namespace Transit.Framework.Mod
             get { return Name; }
         }
 
-        private string _assetPath;
         public virtual string AssetPath => PluginInfo.modPath;
         private static PluginInfo PluginInfo
         {
@@ -65,7 +63,6 @@ namespace Transit.Framework.Mod
 
         bool m_hasHarmonyConflict = false;
 
-        protected bool isBlocked() => AccessControlLists.isBlocked();
         protected bool HasCompatibleHarmony()
         {
             if (m_hasHarmonyConflict)
@@ -78,7 +75,6 @@ namespace Transit.Framework.Mod
                 var key = harmonyAssembly.GetType("HarmonyLib.HarmonySharedState").GetMethod("GetOriginal",
                     System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
                 var signedBy = ByteArrayToHexString(harmonyAssembly.GetName().GetPublicKeyToken());
-                UnityEngine.Debug.LogError($"Harmony Hashcode: {harmonyAssembly.GetName().FullName} : {harmonyAssembly.GetHashCode()} signedby: {signedBy}");
 
                 /* Support only Harmony (redesigned) and Harmony 2.0.4-4 (May 5, 2021 version)
                  * Colossal Order's imminent Harmony 2.2 breaks compatibility in subtle ways,

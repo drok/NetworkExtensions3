@@ -2,6 +2,7 @@
 using System.Linq;
 using Transit.Framework;
 using UnityEngine;
+using Transit.Addon.RoadExtensions.Roads.Common;
 
 namespace Transit.Addon.RoadExtensions.Roads.Highways.Common
 {
@@ -149,7 +150,7 @@ namespace Transit.Addon.RoadExtensions.Roads.Highways.Common
             {
                 var l = vehicleLanes[i];
                 l.m_stopType = VehicleInfo.VehicleType.None;
-                l.m_speedLimit = 2f;
+                l.m_speedLimit = RoadHelper.SpeedLimit(2f);
                 l.m_verticalOffset = 0f;
                 l.m_width = laneWidth;
                 l.m_position = positionStart + i * laneWidth;

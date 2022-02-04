@@ -102,10 +102,16 @@ namespace Transit.Addon.RoadExtensions
                 {
                     var props = host._props = host._container.AddComponent<PropCollection>();
                     props.name = PROP_COLLECTION_NAME;
+
                     if (newInfos.Count > 0)
                     {
                         props.m_prefabs = newInfos.ToArray();
                         PrefabCollection<PropInfo>.InitializePrefabs(props.name, props.m_prefabs, new string[] { });
+                        /* FIXME: should not BindPrefabs here, not all assets have been loaded.
+                         * The Load Manager will bind when appropriate
+                         * Leaving this here until Harmony (redesigned) implements detecting this
+                         * condition.
+                         */
                         PrefabCollection<PropInfo>.BindPrefabs();
                     }
                 });
@@ -245,6 +251,11 @@ namespace Transit.Addon.RoadExtensions
                     {
                         roads.m_prefabs = newInfos.ToArray();
                         PrefabCollection<NetInfo>.InitializePrefabs(roads.name, roads.m_prefabs, new string[] { });
+                        /* FIXME: should not BindPrefabs here, not all assets have been loaded.
+                         * The Load Manager will bind when appropriate
+                         * Leaving this here until Harmony (redesigned) implements detecting this
+                         * condition.
+                         */
                         PrefabCollection<NetInfo>.BindPrefabs();
                     }
                 });

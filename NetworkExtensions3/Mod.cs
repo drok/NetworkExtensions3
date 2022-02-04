@@ -18,8 +18,7 @@ namespace NetworkExtensions
         public override string Description
         {
             get { return
-                    isBlocked() ? (PlatformService.personaName + ": You lack the privilege to run this mod") :
-                    HasCompatibleHarmony() ? "All roads lead to Rome." :
+                    HasCompatibleHarmony() ? "Rome wasn't built in a day. Neither was this mod. Enjoy." :
                     "The installed Harmony is not compatible. Please use 2.0.4 or Harmony (redesigned)"; }
         }
 

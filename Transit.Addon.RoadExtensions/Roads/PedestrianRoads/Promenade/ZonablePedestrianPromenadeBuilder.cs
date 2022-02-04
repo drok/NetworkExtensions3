@@ -102,7 +102,7 @@ namespace Transit.Addon.RoadExtensions.Roads.PedestrianRoads.Promenade
                 bikeLanes[i].m_width = bikeLaneWidth;
                 bikeLanes[i].m_verticalOffset = -0.15f;
                 bikeLanes[i].m_direction = bikeLanes[i].m_position > 0 ? NetInfo.Direction.Forward : NetInfo.Direction.Backward;
-                bikeLanes[i].m_speedLimit = 0.8f;
+                bikeLanes[i].m_speedLimit = RoadHelper.SpeedLimit(0.8f);
                 bikeLanes[i].m_stopType = VehicleInfo.VehicleType.None;
                 var tempProps = bikeLanes[i].m_laneProps.m_props.ToList();
                 tempProps.RemoveProps("arrow");
@@ -236,11 +236,11 @@ namespace Transit.Addon.RoadExtensions.Roads.PedestrianRoads.Promenade
 
         public void LateBuildUp(NetInfo info, NetInfoVersion version)
         {
-            var bollardName = "StoneBollard";
-            var stoneBollard = PrefabCollection<PropInfo>.FindLoaded($"{Tools.PackageName(bollardName)}.{bollardName}_Data");
+            var bollardName = "StoneBollard.NE3.StoneBollard";
+            var stoneBollard = PrefabCollection<PropInfo>.FindLoaded($"{bollardName}_Data");
 
-            var RoadPlanter1Name = "RoadPlanter1";
-            var RoadPlanter1 = PrefabCollection<PropInfo>.FindLoaded($"{Tools.PackageName(RoadPlanter1Name)}.{RoadPlanter1Name}_Data");
+            var RoadPlanter1Name = "RoadPlanter1.NE3.RoadPlanter1";
+            var RoadPlanter1 = PrefabCollection<PropInfo>.FindLoaded($"{RoadPlanter1Name}_Data");
 
             var pedLanes = info.m_lanes.Where(pl => pl.m_laneType == NetInfo.LaneType.Pedestrian).ToArray();
             for (var i = 0; i < pedLanes.Length; i++)
