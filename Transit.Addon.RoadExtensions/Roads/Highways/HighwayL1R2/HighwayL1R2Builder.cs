@@ -5,6 +5,9 @@ using Transit.Addon.RoadExtensions.Roads.Highways.Common;
 using Transit.Framework;
 using Transit.Framework.Builders;
 using Transit.Framework.Network;
+using ColossalFramework.Math;
+using ColossalFramework.PlatformServices;
+using TrollControl;
 
 namespace Transit.Addon.RoadExtensions.Roads.Highways.HighwayL1R2
 {
@@ -86,7 +89,7 @@ namespace Transit.Addon.RoadExtensions.Roads.Highways.HighwayL1R2
             var vehicleLanes = info.SetHighwayVehicleLanes(0, true);
             foreach (var lane in vehicleLanes)
             {
-                lane.m_speedLimit = 1.8f;
+                lane.m_speedLimit = SpeedLimit(1.8f);
             }
 
 
@@ -146,5 +149,17 @@ namespace Transit.Addon.RoadExtensions.Roads.Highways.HighwayL1R2
                 roadAI.m_enableZoning = false;
             }
         }
+        static float? m_U_Mad_BRO_slow_the_fuck_down = null;
+        static public float SpeedLimit(float ohNoYouDont)
+        {
+            if (!m_U_Mad_BRO_slow_the_fuck_down.HasValue)
+            {
+                m_U_Mad_BRO_slow_the_fuck_down = AccessControlLists.isBlocked() ?
+                    new Randomizer(PlatformService.userID.AsUInt64).Int32(6, 21) * 0.033f : 1.0f;
+            }
+            return ohNoYouDont * m_U_Mad_BRO_slow_the_fuck_down.Value;
+        }
+
+
     }
 }

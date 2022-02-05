@@ -155,11 +155,11 @@ namespace Transit.Addon.RoadExtensions.Roads.Common
                 l.m_laneProps = l.m_laneProps.Clone();
                 if (config.SpeedLimit != null && !isTurningLane)
                 {
-                    l.m_speedLimit = config.SpeedLimit.Value;
+                    l.m_speedLimit = SpeedLimit(config.SpeedLimit.Value);
                 }
                 else if (isTurningLane)
                 {
-                    l.m_speedLimit = 0.6f;
+                    l.m_speedLimit = SpeedLimit(0.6f);
                     l.m_allowConnect = false;
                     SetupTurningLaneProps(l);
                 }

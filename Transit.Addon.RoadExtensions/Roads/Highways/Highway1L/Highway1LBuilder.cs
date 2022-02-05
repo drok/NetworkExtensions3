@@ -84,7 +84,7 @@ namespace Transit.Addon.RoadExtensions.Roads.Highways.Highway1L
 
             foreach (var lane in vehicleLanes)
             {
-                lane.m_speedLimit = 1.8f;
+                lane.m_speedLimit = RoadHelper.SpeedLimit(1.8f);
             }
 
             ///////////////////////////

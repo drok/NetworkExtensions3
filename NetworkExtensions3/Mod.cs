@@ -12,20 +12,19 @@ namespace NetworkExtensions
     {
         public override string Name
         {
-            get { return "Network Extensions 3"; }
+            get { return "Network Extensions 3 " + Version; }
         }
 
         public override string Description
         {
             get { return
-                    isBlocked() ? (PlatformService.personaName + ": You lack the privilege to run this mod") :
-                    HasCompatibleHarmony() ? "All roads lead to Rome." :
+                    HasCompatibleHarmony() ? "Rome wasn't built in a day. Neither was this mod. Enjoy." :
                     "The installed Harmony is not compatible. Please use 2.0.4 or Harmony (redesigned)"; }
         }
 
         public override string Version
         {
-            get { return "1.0.1"; }
+            get { return "1.0.2"; }
         }
 
     }

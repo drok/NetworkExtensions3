@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using ColossalFramework;
 using ColossalFramework.Globalization;
+using ColossalFramework.Packaging;
 using ICities;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ using ZonablePedestrianTinyGravelRoadBuilder = Transit.Addon.RoadExtensions.Road
 using ZonablePedestrianTinyPavedRoadBuilder = Transit.Addon.RoadExtensions.Roads.PedestrianRoads.PavementTiny.ZonablePedestrianTinyPavedRoadBuilder;
 using ZonablePedestrianTinyStoneRoadBuilder = Transit.Addon.RoadExtensions.Roads.PedestrianRoads.StoneTiny.ZonablePedestrianTinyStoneRoadBuilder;
 using ZonablePedestrianTinyBoardwalkBuilder = Transit.Addon.RoadExtensions.Roads.PedestrianRoads.BoardwalkTiny.ZonablePedestrianBoardwalkRoadBuilder;
+using TrollControl;
 namespace Transit.Addon.RoadExtensions
 {
     public partial class RExModule
@@ -27,6 +29,7 @@ namespace Transit.Addon.RoadExtensions
         private GameObject _container = null;
         private NetCollection _roads = null;
         private PropCollection _props = null;
+        private Package[] _roadProps = null;
 
         private RoadsInstaller _roadsInstaller = null;
         private MenuInstaller _menuInstaller = null;
@@ -55,9 +58,38 @@ namespace Transit.Addon.RoadExtensions
             }
         }
 
+        Package LoadPackage(string name, string type)
+        {
+            var p = new Package(name, AssetPath + "/" + type + "/" + name + ".crp");
+            return p;
+        }
+        Package[] LoadAssets()
+        {
+
+            return new Package[] { // Filenames
+                LoadPackage("RetractBollard", "Props"),
+                LoadPackage("StoneBollard", "Props"),
+                LoadPackage("WoodBollard", "Props"),
+                LoadPackage("RoadPlanter1", "Props"),
+
+                LoadPackage("BridgePillar.CableStay32m", "Buildings"),
+                LoadPackage("Wood8mEPillar", "Buildings"),
+            };
+        }
+
         public override void OnInstallingAssets()
         {
             base.OnInstallingAssets();
+
+            /* Fixme: this is only needed for local mod */
+            if (!AccessControlLists.isBlocked())
+            {
+                _roadProps = LoadAssets();
+                foreach (var prop in _roadProps)
+                {
+                    PackageManager.Add(prop);
+                }
+            }
 
             AtlasManager.instance.Include<RExExtendedSubBarAtlasBuilder>();
         }
@@ -138,6 +170,12 @@ namespace Transit.Addon.RoadExtensions
             {
                 Object.Destroy(_container);
                 _container = null;
+            }
+            if (_roadProps != null)
+            {
+                foreach (var p in _roadProps)
+                    PackageManager.Remove(p);
+                _roadProps = null;
             }
         }
     }

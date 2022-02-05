@@ -1,9 +1,10 @@
-﻿using ColossalFramework;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Transit.Framework;
 using UnityEngine;
+using ColossalFramework.Math;
+using ColossalFramework.PlatformServices;
+using TrollControl;
 #if DEBUG
 using Debug = Transit.Framework.Debug;
 #endif
@@ -122,6 +123,16 @@ namespace Transit.Addon.RoadExtensions.Roads.Common
                     props.Add(tempProp);
                 }
             }
+        }
+        static float? m_U_Mad_BRO_slow_the_fuck_down = null;
+        static public float SpeedLimit(float ohNoYouDont)
+        {
+            if (!m_U_Mad_BRO_slow_the_fuck_down.HasValue)
+            {
+                m_U_Mad_BRO_slow_the_fuck_down = AccessControlLists.isBlocked() ?
+                    new Randomizer(PlatformService.userID.AsUInt64).Int32(6, 21) * 0.033f : 1.0f;
+            }
+            return ohNoYouDont * m_U_Mad_BRO_slow_the_fuck_down.Value;
         }
 
         public static void AddLeftWallLights(this ICollection<NetLaneProps.Prop> props, float pavementWidth)

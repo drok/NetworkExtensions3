@@ -144,7 +144,7 @@ namespace Transit.Addon.RoadExtensions.Roads.TinyRoads.Oneway1LBicycle
                 bikeLanes[i].m_width = bikeLaneWidth;
                 bikeLanes[i].m_verticalOffset = -0.1f;
                 bikeLanes[i].m_direction = i==0? NetInfo.Direction.Forward : NetInfo.Direction.Backward;
-                bikeLanes[i].m_speedLimit = 0.8f;
+                bikeLanes[i].m_speedLimit = RoadHelper.SpeedLimit(0.8f);
                 bikeLanes[i].m_stopType = VehicleInfo.VehicleType.None;
                 bikeLanes[i].SetBikeLaneProps();
             }

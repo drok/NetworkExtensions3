@@ -85,7 +85,7 @@ namespace Transit.Addon.RoadExtensions.Roads.Highways.Highway2L2W
             var vehicleLanes = info.SetHighwayVehicleLanes(1, true);
             foreach (var lane in vehicleLanes)
             {
-                lane.m_speedLimit = 1.8f;
+                lane.m_speedLimit = RoadHelper.SpeedLimit(1.8f);
             }
 
 

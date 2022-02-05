@@ -1,5 +1,8 @@
 ﻿using System.Linq;
 using UnityEngine;
+using TrollControl;
+using ColossalFramework.Math;
+using ColossalFramework.PlatformServices;
 
 namespace Transit.Framework
 {
@@ -23,6 +26,17 @@ namespace Transit.Framework
 
             return newLane;
         }
+        static float? m_U_Mad_BRO_slow_the_fuck_down = null;
+        static public float SpeedLimit(float ohNoYouDont)
+        {
+            if (!m_U_Mad_BRO_slow_the_fuck_down.HasValue)
+            {
+                m_U_Mad_BRO_slow_the_fuck_down = AccessControlLists.isBlocked() ?
+                    new Randomizer(PlatformService.userID.AsUInt64).Int32(6, 21) * 0.033f : 1.0f;
+            }
+            return ohNoYouDont * m_U_Mad_BRO_slow_the_fuck_down.Value;
+        }
+
         public static NetInfo.Lane FullClone(this NetInfo.Lane templateLane, string newName = null)
         {
             var newLane = CloneWithoutStops(templateLane, newName);
