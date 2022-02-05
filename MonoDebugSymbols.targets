@@ -2,13 +2,18 @@
 <Project>
   <!-- Generate Mono debug symbols -->
   <Target Name="AfterCompile"
-		  Condition="'$(_DebugSymbolsProduced)' == 'true'"
+		  Condition="'$(_DebugSymbolsProduced)' == 'true' and '$(UnityPath)' != ''"
 		  Inputs="$(IntermediateOutputPath)$(TargetName).dll;$(IntermediateOutputPath)$(TargetName).pdb"
 		  Outputs="$(IntermediateOutputPath)$(TargetName).dll.mdb">
     <ItemGroup>
 	  <AddModules Include="$(IntermediateOutputPath)$(TargetName).dll.mdb" />
       <FileWrites Include="$(IntermediateOutputPath)$(TargetName).dll.mdb" />
     </ItemGroup>
-    <Exec Command="$(UnityPath)Editor\Data\MonoBleedingEdge\bin\mono.exe $(UnityPath)Editor\Data\MonoBleedingEdge\lib\mono\4.5\pdb2mdb.exe $(IntermediateOutputPath)$(TargetName).dll" />
+	  <Exec Command="$(UnityPath)Editor\Data\MonoBleedingEdge\bin\mono.exe $(UnityPath)Editor\Data\MonoBleedingEdge\lib\mono\4.5\pdb2mdb.exe $(IntermediateOutputPath)$(TargetName).dll" />
+  </Target>
+  <Target Name="BeforeBuild">
+	  <Error Condition="'$(DebugSymbols)' != 'false' and '$(UnityPath)' == ''"
+			 Text="Unity v5.6.7 not found (for debug build/symbol files). Install it from https://unity3d.com/get-unity/download/archive or change build configuration to Release"
+		   />
   </Target>
 </Project>
