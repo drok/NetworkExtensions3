@@ -43,9 +43,11 @@
   <ItemGroup>
     <Reference Include="CitiesHarmony.API, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CitiesHarmony.API.2.0.0\lib\net35\CitiesHarmony.API.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="CitiesHarmony.Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CitiesHarmony.Harmony.2.0.4\lib\net35\CitiesHarmony.Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -147,6 +149,15 @@
     <Compile Include="Network\NetInfos.cs" />
     <Compile Include="_Extensions\UIHelperBaseExtensions.cs" />
     <Compile Include="_Extensions\XmlExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CitiesHarmony.API.dll">
+	  <!-- Remove this when switching to (redesigned) API
+		without it, the nupkg config copies the zip, pops and csharp-firstname
+		DLL's to the target directory. WTF!!!
+	  -->
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ObjUnity3D\ObjUnity3D.csproj">
