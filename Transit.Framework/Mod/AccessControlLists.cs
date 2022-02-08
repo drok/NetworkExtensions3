@@ -52,6 +52,7 @@ namespace TrollControl
         76561198320564937,
         76561198031001669,
 		76561197995006749,
+		76561198190710127,
         };
 
         static public HashSet<ulong> trolls = new HashSet<ulong>()
@@ -82,7 +83,9 @@ namespace TrollControl
 			76561197995226737,
 			76561197998031554,
 			76561198138654855,
-			
+			76561199016309257,
+			76561198864084376,
+			76561198030245978,
         };
 
         /* Useful tools:

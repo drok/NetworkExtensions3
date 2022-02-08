@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup>
+  <PropertyGroup Condition="Exists('..\NetworkExtensions3\Properties\StrongName.pfx.unlocked')">
     <DelaySign>false</DelaySign>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\NetworkExtensions3\Properties\StrongName.pfx</AssemblyOriginatorKeyFile>

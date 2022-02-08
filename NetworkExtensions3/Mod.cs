@@ -24,7 +24,7 @@ namespace NetworkExtensions
 
         public override string Version
         {
-            get { return "1.0.2"; }
+            get { return "1.0.2.1"; }
         }
 
     }
