@@ -37,7 +37,7 @@
     <OutputPath>bin\$(Configuration)-NotUsed\</OutputPath>
     <OutDir>$(ModDirectory)</OutDir>
   </PropertyGroup>
-  <PropertyGroup>
+  <PropertyGroup Condition="Exists('..\NetworkExtensions3\Properties\StrongName.pfx.unlocked')">
     <DelaySign>false</DelaySign>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\NetworkExtensions3\Properties\StrongName.pfx</AssemblyOriginatorKeyFile>
