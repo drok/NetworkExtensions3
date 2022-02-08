@@ -18,7 +18,7 @@ namespace NetworkExtensions
         public override string Description
         {
             get { return
-                    HasCompatibleHarmony() ? "Rome wasn't built in a day. Neither was this mod. Enjoy." :
+                    HasCompatibleHarmony() ? "Backup your mods locally, Harmony 2.2 is here" :
                     "The installed Harmony is not compatible. Please use 2.0.4 or Harmony (redesigned)"; }
         }
 
